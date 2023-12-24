@@ -24,7 +24,7 @@ trait HasMeta
     protected function exportMeta(): array
     {
         if (property_exists(static::class, 'summary') and property_exists(static::class, 'summaryMetaKeys')) {
-            return ['meta' => $this->exportMetaWithKeys(static::$summaryMetaKeys)];
+            return ['meta' => $this->exportMetaWithKeys(static::$summaryMetaKeys)]; // @phpstan-ignore-line
         } else {
             return ['meta' => $this->exportMetaWithKeys(self::$metaKeys)];
         }

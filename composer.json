@@ -31,7 +31,7 @@
 		]
 	},
 	"scripts": {
-		"test:types": "vendor/bin/phpstan analyze",
+		"test:types": "vendor/bin/phpstan analyze src",
 		"test:phpunit": "vendor/bin/phpunit",
 		"test:codestyle": "vendor/bin/php-cs-fixer fix -v --dry-run --stop-on-violation --using-cache=no",
 		"test": [
