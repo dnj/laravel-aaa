@@ -34,14 +34,27 @@ class ServiceProvider extends SupportServiceProvider
 
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         $this->integrateToGates();
         $this->registerRoutes();
-        $this->registerPolicies();
+        $this->registerPublishing();
+    }
+
+    /**
+     * Register the package's publishable resources.
+     */
+    protected function registerPublishing(): void
+    {
         if ($this->app->runningInConsole()) {
+            if (config('aaa.migrations.enable')) {
+                $this->loadMigrationsFrom([
+                    __DIR__.'/../database/migrations' => database_path('migrations'),
+                ], ['aaa', 'aaa-migrations']);
+            }
+
             $this->publishes([
                 __DIR__.'/../config/aaa.php' => config_path('aaa.php'),
-            ], 'config');
+            ], ['aaa', 'aaa-config', 'config']);
+
             $this->commands([
                 Console\PolicyMakeCommand::class,
             ]);
