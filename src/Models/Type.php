@@ -2,8 +2,8 @@
 
 namespace dnj\AAA\Models;
 
-use dnj\AAA\Contracts\ITypeManager;
 use dnj\AAA\Contracts\IType;
+use dnj\AAA\Contracts\ITypeManager;
 use dnj\AAA\Contracts\IUser;
 use dnj\AAA\Database\Factories\TypeFactory;
 use dnj\AAA\Models\Concerns\HasAbilities;

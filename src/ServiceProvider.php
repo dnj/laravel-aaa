@@ -37,6 +37,7 @@ class ServiceProvider extends SupportServiceProvider
         $this->integrateToGates();
         $this->registerRoutes();
         $this->registerPublishing();
+        $this->registerPolicies();
     }
 
     /**
