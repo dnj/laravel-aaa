@@ -1,11 +1,12 @@
 {
 	"name": "dnj/laravel-aaa",
+	"description": "Authentication + Authorization + Accounting For Your Next Laravel Project!",
 	"license": "MIT",
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"require": {
 		"php": "^8.1",
-		"dnj/laravel-user-logger": "^1.0.0",
+		"dnj/laravel-user-logger": "^1.1.0",
 		"dnj/laravel-localization": "^1.0.0",
 		"yeganemehr/laravel-support": "^1.0.0"
 	},
