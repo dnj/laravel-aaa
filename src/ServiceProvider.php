@@ -47,9 +47,7 @@ class ServiceProvider extends SupportServiceProvider
     {
         if ($this->app->runningInConsole()) {
             if (config('aaa.migrations.enable')) {
-                $this->loadMigrationsFrom([
-                    __DIR__.'/../database/migrations' => database_path('migrations'),
-                ], ['aaa', 'aaa-migrations']);
+                $this->loadMigrationsFrom(dirname(__DIR__) . '/database/migrations');
             }
 
             $this->publishes([

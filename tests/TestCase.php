@@ -10,10 +10,8 @@ use dnj\AAA\Models\TypeAbility;
 use dnj\AAA\Models\TypeTranslate;
 use dnj\AAA\Models\User;
 use dnj\AAA\Policy;
-use dnj\AAA\ServiceProvider as AAAServiceProvider;
 use dnj\AAA\TypeManager;
 use dnj\AAA\UserManager;
-use dnj\UserLogger\ServiceProvider as UserLoggerServiceProvider;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
 use Orchestra\Testbench\Concerns\WithWorkbench;
@@ -43,22 +41,9 @@ class TestCase extends \Orchestra\Testbench\TestCase
         return User::factory()->withType($myType)->create();
     }
 
-    protected function defineDatabaseMigrations(): void
-    {
-        $this->loadMigrationsFrom(__DIR__.'/../vendor/dnj/laravel-user-logger/database/migrations');
-        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-    }
 
     protected function createUserWithModelAbility(string $model, string $ability): IUser
     {
         return $this->createUserWithAbility(Policy::getModelAbilityName($model, $ability));
-    }
-
-    protected function getPackageProviders($app)
-    {
-        return [
-            AAAServiceProvider::class,
-            UserLoggerServiceProvider::class,
-        ];
     }
 }
