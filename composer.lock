@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eba5b49ff4d8752545895cc5b2c3c471",
+    "content-hash": "decaa219530c310538bafe16a4fead1d",
     "packages": [
         {
             "name": "dnj/laravel-localization",
@@ -47,23 +47,23 @@
         },
         {
             "name": "dnj/laravel-user-logger",
-            "version": "v1.1.1",
+            "version": "v1.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/dnj/laravel-user-logger.git",
-                "reference": "eec435e3458201414299281871152eb46cbe3556"
+                "reference": "774101c70309e6c1172f49266c875406ce933d5f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/dnj/laravel-user-logger/zipball/eec435e3458201414299281871152eb46cbe3556",
-                "reference": "eec435e3458201414299281871152eb46cbe3556",
+                "url": "https://api.github.com/repos/dnj/laravel-user-logger/zipball/774101c70309e6c1172f49266c875406ce933d5f",
+                "reference": "774101c70309e6c1172f49266c875406ce933d5f",
                 "shasum": ""
             },
             "require": {
-                "dnj/laravel-aaa": "^1.1.0",
                 "php": "^8.1"
             },
             "require-dev": {
+                "dnj/laravel-aaa": "^1.1.0",
                 "friendsofphp/php-cs-fixer": "^3.11",
                 "orchestra/testbench": "^7.0",
                 "phpunit/phpunit": "^9"
@@ -91,9 +91,9 @@
             ],
             "support": {
                 "issues": "https://github.com/dnj/laravel-user-logger/issues",
-                "source": "https://github.com/dnj/laravel-user-logger/tree/v1.1.1"
+                "source": "https://github.com/dnj/laravel-user-logger/tree/v1.1.2"
             },
-            "time": "2024-02-24T09:53:12+00:00"
+            "time": "2024-02-24T10:36:49+00:00"
         },
         {
             "name": "yeganemehr/laravel-support",
@@ -9056,5 +9056,5 @@
         "php": "^8.1"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
