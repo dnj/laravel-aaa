@@ -13,7 +13,7 @@ abstract class Policy
 {
     public static function getModelAbilityName(object|string $model, string $method): string
     {
-        if ($model instanceof object) {
+        if (is_object($model)) {
             $model = get_class($model);
         }
 
