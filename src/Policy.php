@@ -67,11 +67,11 @@ abstract class Policy
     protected function userHasAccessToModel(IUser $user, object $model): ?bool
     {
         if (!$model instanceof IOwnerableModel) {
-            return null;
+            return true;
         }
         $ownerId = $model->getOwnerUserId();
         if (null === $ownerId) {
-            return null;
+            return false;
         }
         if ($user->getId() == $ownerId) {
             return true;

@@ -8,6 +8,8 @@ use dnj\AAA\Models\User;
 use dnj\AAA\Policy;
 use dnj\AAA\Tests\Doubles\DummyModel;
 use dnj\AAA\Tests\Doubles\DummyPolicy;
+use dnj\AAA\Tests\Doubles\NoOwnerableModel;
+use dnj\AAA\Tests\Doubles\NoOwnerablePolicy;
 use dnj\AAA\Tests\TestCase;
 
 class PolicyTest extends TestCase
@@ -54,5 +56,22 @@ class PolicyTest extends TestCase
 
         $dummy = DummyModel::query()->create(['owner_id' => $subUser->id]);
         $this->assertTrue($policy->update($user, $dummy)->allowed());
+    }
+
+    public function testNoOwnerableModel(): void
+    {
+        $this->loadMigrationsFrom(dirname(__DIR__) . '/Doubles/migrations');
+
+        $userType = Type::factory()
+            ->has(TypeAbility::factory()->withName(Policy::getModelAbilityName(NoOwnerableModel::class, 'view')), 'abilities')
+            ->create();
+
+        $user = User::factory()
+            ->withType($userType)
+            ->create();
+
+        $policy = app()->make(NoOwnerablePolicy::class);
+        $dummy = NoOwnerableModel::query()->create([]);
+        $this->assertTrue($policy->view($user, $dummy)->allowed());
     }
 }
