@@ -23,10 +23,12 @@ trait HasMeta
 
     protected function exportMeta(): array
     {
-        if (property_exists(static::class, 'summary') and property_exists(static::class, 'summaryMetaKeys')) {
-            return ['meta' => $this->exportMetaWithKeys(static::$summaryMetaKeys)];
-        } else {
-            return ['meta' => $this->exportMetaWithKeys(self::$metaKeys)];
+        $keys = static::$metaKeys;
+        if (property_exists($this, 'summary') and $this->summary) {
+            if (property_exists(static::class, 'summaryMetaKeys')) {
+                $keys = static::$summaryMetaKeys;
+            }
         }
+        return ['meta' => $this->exportMetaWithKeys($keys)];
     }
 }
