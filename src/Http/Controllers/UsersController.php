@@ -46,6 +46,7 @@ class UsersController extends Controller
             username: $usernames[0],
             password: Hash::make($data['usernames'][$usernames[0]]),
             type: $data['type_id'],
+            meta: $data['meta'] ?? [],
             userActivityLog: true
         );
         if (UserStatus::ACTIVE != $data['status']) {
