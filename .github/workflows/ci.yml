@@ -9,16 +9,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: php-actions/composer@v6
+      - name: Setup PHP with Xdebug
+        uses: shivammathur/setup-php@v2
         with:
-          php_version: "8.2"
+          php-version: "8.2"
+          coverage: xdebug
 
-      - uses: php-actions/phpunit@v3
-        with:
-          version: 9
-          php_extensions: bcmath xdebug gd mbstring imagick
-          php_version: "8.2"
-          args: --coverage-clover=coverage/clover-coverage.xml
+      - name: Install Dependencies
+        run: composer install
+
+      - name: Running tests
+        run: composer run test:phpunit -- --coverage-clover=coverage/clover-coverage.xml
         env:
           XDEBUG_MODE: coverage
 
