@@ -29,6 +29,7 @@ trait HasMeta
                 $keys = static::$summaryMetaKeys;
             }
         }
+
         return ['meta' => $this->exportMetaWithKeys($keys)];
     }
 }

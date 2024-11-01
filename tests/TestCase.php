@@ -41,7 +41,6 @@ class TestCase extends \Orchestra\Testbench\TestCase
         return User::factory()->withType($myType)->create();
     }
 
-
     protected function createUserWithModelAbility(string $model, string $ability): IUser
     {
         return $this->createUserWithAbility(Policy::getModelAbilityName($model, $ability));

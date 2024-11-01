@@ -9,7 +9,7 @@ use dnj\AAA\Tests\Doubles\DummyManager;
 use dnj\AAA\Tests\Doubles\DummyModel;
 use dnj\AAA\Tests\TestCase;
 
-class OwnerableModelExistsRuleTest extends TestCase
+class OwnerableExistsRuleTest extends TestCase
 {
     public function testExisting(): void
     {

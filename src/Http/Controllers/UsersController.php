@@ -22,7 +22,7 @@ class UsersController extends Controller
     use ValidatesRequests;
 
     public function __construct(
-        protected IUserManager $userManager
+        protected IUserManager $userManager,
     ) {
     }
 

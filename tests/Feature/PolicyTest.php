@@ -60,7 +60,7 @@ class PolicyTest extends TestCase
 
     public function testNoOwnerableModel(): void
     {
-        $this->loadMigrationsFrom(dirname(__DIR__) . '/Doubles/migrations');
+        $this->loadMigrationsFrom(dirname(__DIR__).'/Doubles/migrations');
 
         $userType = Type::factory()
             ->has(TypeAbility::factory()->withName(Policy::getModelAbilityName(NoOwnerableModel::class, 'view')), 'abilities')

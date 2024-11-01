@@ -40,7 +40,7 @@ interface ITypeManager
     public function update(
         int|IType $type,
         array $changes,
-        bool $userActivityLog = false
+        bool $userActivityLog = false,
     ): IType;
 
     public function destroy(int|IType $type, bool $userActivityLog = false): void;
