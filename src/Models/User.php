@@ -239,9 +239,14 @@ class User extends Model implements IUser, Authenticatable, Authorizable
         return $this->getKey();
     }
 
+    public function getAuthPasswordName()
+    {
+        throw new \LogicException("If you using AAA user provider, you shouldn't need this");
+    }
+
     public function getAuthPassword(): string
     {
-        return $this->usernames->first()?->password ?? '';
+        return $this->activeUsername?->password ?? $this->usernames->first()?->password ?? '';
     }
 
     public function getRememberToken(): ?string
